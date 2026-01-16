@@ -1,0 +1,21 @@
+version: "3"
+services:
+  db:
+    image: postgres:16
+    container_name: podcast_db
+    environment:
+      - POSTGRES_USER=poduser
+      - POSTGRES_PASSWORD=poduser
+      - POSTGRES_DB=podcastdb
+      - DATABASE_URL=postgresql+psycopg2://poduser:poduser@localhost:5432/podcastdb
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready", "-U poduser", "-d podcastdb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+volumes:
+  pgdata:
