@@ -8,9 +8,9 @@ REQ_COL =  [
     "length_minutes",
     "intro_length_seconds",
     "adsNumber",
-    "previous_ep_retention"
-    "host_energy"
-    "completion_percentage"
+    "previous_ep_retention",
+    "host_energy",
+    "completion_percentage",
     "category"
 ]
 
