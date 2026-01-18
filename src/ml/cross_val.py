@@ -23,7 +23,13 @@ def make_pipeline(num_col, cat_col):
 
     return pipe
 
-def cross_val(pipe, X, y):
+def cross_val(pipe, X, y, n_splits=5):
+    n = len(X)
+    if n == 0:
+        raise ValueError("Training data is empty")
+    n_splits = min(n_splits, n)
+    if n_splits < 2:
+        raise ValueError(f"Need at least 2 splits, got {n}")
     kf = KFold(n_splits=5, shuffle=True, random_state=42)
     return cross_val_score(pipe, X, y, cv=kf, scoring='r2')
 

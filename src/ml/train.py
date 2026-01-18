@@ -13,7 +13,7 @@ def train_save():
     data = load_train_data()
     X, y, num_col, cat_col = build_features(data)
     pipe = make_pipeline(num_col, cat_col)
-    scores = cross_val(pipe, X, y)
+    scores = cross_val(pipe, X, y, n_splits=5)
 
 
     pipe.fit(X, y)
