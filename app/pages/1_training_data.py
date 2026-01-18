@@ -18,8 +18,8 @@ NUM_COL = [
     "length_minutes",
     "intro_length_seconds",
     "adsNumber",
-    "previous_ep_retention"
-    "host_energy"
+    "previous_ep_retention",
+    "host_energy",
     "completion_percentage"
 ]
 
