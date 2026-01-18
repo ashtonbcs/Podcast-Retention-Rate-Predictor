@@ -61,12 +61,12 @@ if uploaded:
     try:
         data_raw = pd.read_csv(uploaded)
         st.subheader("Preview (raw)")
-        st.dataframe(data_raw.head(20), use_column_width=True)
+        st.dataframe(data_raw.head(20), use_container_width=True)
 
         data_clean, dropped = validate_data(data_raw)
 
         st.subheader("Preview (clean)")
-        st.dataframe(data_clean.head(20), use_column_width=True)
+        st.dataframe(data_clean.head(20), use_container_width=True)
         st.info(f"Rows to insert: {len(data_clean)} | Rows dropped: {dropped}")
 
         if st.button("Ingest Data"):
