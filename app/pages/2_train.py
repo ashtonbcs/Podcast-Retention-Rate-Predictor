@@ -1,6 +1,8 @@
 import streamlit as st
 from src.ml.train import train_save
 
+st.title("Train The Model")
+
 if st.button("Train Model"):
     result = train_save()
     st.success("Model Trained and saved")
