@@ -3,6 +3,7 @@ import pandas as pd
 from typing import Tuple
 from sqlalchemy import text
 from src.postgres.session import engine
+from src.postgres.health import db_health, table_count
 
 REQ_COL =  [
     "length_minutes",
@@ -28,6 +29,8 @@ TABLE_NAME = "podcast_data"
 
 st.title("Import Training Data (CSV)")
 st.write("Upload a CSV file to ingest rows")
+st.write("DB:", db_health())
+st.write("podcast_data rows:", table_count("podcast_data"))
 uploaded = st.file_uploader("Upload a CSV file", type=["csv"])
 
 def validate_data(data: pd.DataFrame) -> Tuple[pd.DataFrame, int]:
